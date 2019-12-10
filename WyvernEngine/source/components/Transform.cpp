@@ -12,7 +12,7 @@ Transform::Transform(const glm::vec3 &position, const glm::quat &orientation,
     : m_position(position), m_orientation(orientation), m_scale(scale) {}
 
 Transform::Transform(const glm::vec3 &position)
-    : Transform(position, glm::quat(), {1.0f, 1.0f, 1.0f}) {}
+    : Transform(position, glm::quat({0, 0, 0}), {1.0f, 1.0f, 1.0f}) {}
 
 Transform::Transform(const Transform &transform) {
   m_position = transform.m_position;
@@ -25,9 +25,9 @@ Transform::~Transform() {}
 glm::mat4 Transform::Matrix(const glm::vec3 &position,
                             const glm::quat &orientation,
                             const glm::vec3 &scale) {
-  glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
+  glm::mat4 translationMatrix = glm::translate(glm::mat4(1), position);
   glm::mat4 rotationMatrix = glm::mat4_cast(orientation);
-  glm::mat4 scaleMatrix = glm::scale(glm::mat4(), scale);
+  glm::mat4 scaleMatrix = glm::scale(glm::mat4(1), scale);
   return translationMatrix * rotationMatrix * scaleMatrix;
 }
 

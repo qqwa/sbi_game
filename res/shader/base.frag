@@ -10,5 +10,5 @@ void main()
 {
     color = materialColor * 3 + texture(texture_diffuse, TexCoord) * vec4(0.5, 0.5, 0.5, 1);
     color.w = materialColor.w;
-    color = vec4(TexCoord.xy, 1.0f, 1.0f);
+    //color = vec4(TexCoord.xy, 1.0f, 1.0f);
 }
