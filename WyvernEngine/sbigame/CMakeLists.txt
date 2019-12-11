@@ -13,12 +13,10 @@ set(SOURCE_FILES_SBI_GAME source/main.cpp source/Entities.h source/Entities.cpp
 #    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-pthreads")
 #endif()
 
-
 add_executable(sbi_game ${SOURCE_FILES_SBI_GAME})
 
 if (UNIX)
-    target_link_libraries(sbi_game GLEW GL glfw3 X11 Xrandr Xinerama Xxf86vm Xcursor pthread rt m dl nanogui WyvernEngine)
-    #    target_link_libraries(sbi_game GLEW GL ${GLFW_STATIC_LIBRARIES} nanogui ${FREETYPE_LIBRARIES} WyvernEngine)
+    target_link_libraries(sbi_game GLEW GL X11 Xrandr Xinerama Xxf86vm Xcursor pthread rt m dl nanogui WyvernEngine)
 else ()
-    target_link_libraries(sbi_game glew32s glfw3 opengl32 WyvernEngine)
+    target_link_libraries(sbi_game glew32s opengl32 nanogui WyvernEngine)
 endif ()
