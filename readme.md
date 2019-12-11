@@ -6,11 +6,13 @@
 
 ## Building
 ### Requirements
-* cmake - version 2.9 or higher
-* gcc - version 6.1.1 or higher (lower version might work, but i don't guarantee it)
-* glew
 
-### Compile
+On Arch Linux install:
+```
+pacman -S base-devel cmake xorg glew mesa
+```
+
+### Compile and run
 
 ```
 git clone https://github.com/qqwa/sbi_game.git
@@ -18,7 +20,8 @@ cd sbi_game
 git submodule update --init --recursive
 ```
 
-On Linux just run the `run.sh` script.
+When on Linux just running the `run.sh` script should be enough, when all depedencies are installed.
+Windows is not supported.
 
 > You need to make sure that the folder `res` is in the current working direction, before starting the game
 
