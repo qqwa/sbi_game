@@ -43,6 +43,9 @@ target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/glfw/include)
 target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/eigen)
 target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/nanovg/src)
 
+add_subdirectory(vendors/glm EXCLUDE_FROM_ALL)
+target_include_directories(WyvernEngine PUBLIC vendors/glm)
+
 
 if (UNIX)
     target_link_libraries(WyvernEngine PUBLIC GLEW X11 Xrandr Xinerama Xxf86vm Xcursor pthread rt m dl)
