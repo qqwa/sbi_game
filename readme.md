@@ -8,14 +8,20 @@
 ### Requirements
 * cmake - version 2.9 or higher
 * gcc - version 6.1.1 or higher (lower version might work, but i don't guarantee it)
-* some other libraries like glm need to be installed
 
 ### Compile
 
-1. run `mkdir -p build && cd build && cmake ../WyvernEngine && make`
-2. the compiled game can be found at **./build/sbigame/sbi_game**
+```
+git clone git@github.com:qqwa/sbi_game.git
+cd sbi_game
+git submodule update --init --recursive
+```
 
-you need to make sure that the folder `res` is in the current working direction, before starting the game
+On Linux just run the `run.sh` script.
+
+> You need to make sure that the folder `res` is in the current working direction, before starting the game
+
+![Screenshot of the Game](/screenshot_small.png)
 
 ## Controls
 ### Keyboard
