@@ -8,11 +8,12 @@
 ### Requirements
 * cmake - version 2.9 or higher
 * gcc - version 6.1.1 or higher (lower version might work, but i don't guarantee it)
+* glew
 
 ### Compile
 
 ```
-git clone git@github.com:qqwa/sbi_game.git
+git clone https://github.com/qqwa/sbi_game.git
 cd sbi_game
 git submodule update --init --recursive
 ```

@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.9)
 project(WyvernEngine)
 
+
+if(WINDOWS)
+    message( FATAL_ERROR "Windows is not supported")
+endif()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -static-libstdc++  -Wendif-labels -Wall -DGLEW_STATIC -DGLFW_STATIC -Wunused-function -m64")
 # cmake_policy(SET CMP0079 NEW)
 
@@ -27,14 +32,6 @@ add_library(WyvernEngine
 )
 
 set_property(TARGET WyvernEngine PROPERTY CXX_STANDARD 11)
-#set(CMAKE_BUILD_TYPE release)
-
-#if(WINDOWS)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-pthreads")
-#endif()
-
-#stb_iamge.h
-target_include_directories(WyvernEngine PUBLIC vendors/include)
 
 add_subdirectory(vendors/nanogui EXCLUDE_FROM_ALL)
 target_link_libraries(WyvernEngine PUBLIC nanogui)
@@ -42,15 +39,9 @@ target_include_directories(WyvernEngine PUBLIC vendors/nanogui/include)
 target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/glfw/include)
 target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/eigen)
 target_include_directories(WyvernEngine PUBLIC vendors/nanogui/ext/nanovg/src)
-
 add_subdirectory(vendors/glm EXCLUDE_FROM_ALL)
 target_include_directories(WyvernEngine PUBLIC vendors/glm)
 
-
-if (UNIX)
-    target_link_libraries(WyvernEngine PUBLIC GLEW X11 Xrandr Xinerama Xxf86vm Xcursor pthread rt m dl)
-else ()
-    target_link_libraries(WyvernEngine PUBLIC glew32s opengl32)
-endif ()
+target_link_libraries(WyvernEngine PUBLIC GLEW X11 Xrandr Xinerama Xxf86vm Xcursor pthread rt m dl)
 
 add_subdirectory(sbigame)
